@@ -4,15 +4,354 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="format-detection" content="telephone=no"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        html, body {
+            background-color: #efe6f7;
+            font-family: 'Roboto', sans-serif;     
+            font-size: 14px;     
+            color: #333;  
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none !important; 
+        }
+        header {
+            display: flex;
+            min-height: 80px;
+            background-color: #5f259e;
+            color: #fff;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .text {
+            padding-left: 15px;         
+        }
+        .heading {
+            font-size: 19px;            
+        }
+        .time {
+            font-size: 14px;
+        }
+        section {
+            padding: 10px;
+        }
+        section .cardx {
+            background-color: #fff;            
+            border-radius: 10px;
+            padding: 15px;
+        }
+        footer {
+            text-align: center;
+            color: #615a62;
+            margin-top: 25px;
+        }
+        footer p {
+            margin: 0;
+            margin-bottom: 7px;
+        }
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .footer-inner img {
+            height: 20px;
+        }
+        a { 
+            color: #333 !important;
+        }
+        .mobile {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        .icon {
+            flex: 0 0 40px
+        }
+        .icon img {
+            height: 50px;
+        }
+        .amount {
+            flex: 0 0 60px;
+            text-align: right;
+            font-weight: 600;
+            font-size: 19px;
+        }
+        .network {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .network p {
+            font-size: 19px;
+            margin-bottom: 0;    
+        }
+        .network a {
+            font-size: 18px;
+            opacity: 0.7;
+        }
+        .cardx h5 {
+            font-weight: 600;
+        }
+        .paymentd {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .paymentd img {
+            height: 25px;
+        }
+        .paymentd img.ic2 {
+            height: 10px;
+        }
+        .paymentd span {
+            flex: 1;
+            padding-left: 10px;
+        }
+        .title {
+            color: #636363;
+            margin-top: 15px;
+            margin-bottom: 2px;
+        }
+        *:focus {
+            outline: none !important;
+        }
+        .bank {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .bank img {
+            width: 50px;
+        }
+        .bank > div {
+            flex: 1;
+            padding-left: 10px;
+            color: #333
+        }
+        .bank > div > div {
+            font-size: 16px;
+            padding-top: 5px;
+            margin-bottom: 1px;
+        }
+        .bank > div > div + a {
+            color: #636363 !important
+        }
+        .bank > span {
+            display: inline-block;
+            padding-top: 5px;
+            font-size: 16px;
+        }
+        .id {
+            font-size: 16px;
+        }
+        aside {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 999;
+            background-color: #efe6f7;
+        }
+    </style>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    <aside id="asideContainer">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-12">
+                    <label>Date</label>
+                    <input type="date" class="form-control" id="dateField">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>Time</label>
+                    <input type="time" class="form-control" id="timeField">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>Mobile Number</label>
+                    <input type="number" class="form-control" value="7024889836" id="mobileNumberField">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>Operator</label>
+                    <select name="operator" id="operatorField" class="form-control">
+                        <option value="Jio" selected>Jio</option>
+                        <option value="Airtel">Airtel</option>
+                        <option value="Vi">Vi</option>
+                        <option value="BSNL">BSNL</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>Recharge Amount</label>
+                    <input type="number" class="form-control" value="399" id="rechargeAmountField">
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" id="saveButton">Save</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="">
+        </div>
+        <div class="text">
+            <div class="heading">
+                Recharge successful
+            </div>
+            <div class="time">
+                <span id="time">04:32 PM</span> on <span id="date">17 Feb 2024</span>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="cardx">
+            <h5>Mobile recharged</h5>
+            <div class="mobile">
+                <div class="icon">
+                    <img src="phone.png" alt="">
+                </div>
+                <div class="network">
+                    <p><span id="op">Jio</span> Prepaid</p>
+                    <a href="javascript:void(0)" id="mob">702489836</a>
+                </div>
+                <div class="amount">
+                    ₹<span id="am">399</span>
+                </div>
+            </div>
+            <hr>
+            <div class="paymentd">
+                <img src="ic.png" alt="">
+                <span>Payment details</span>
+                <img class="ic2" src="ic2.png" alt="">
+            </div>
+            <div class="title">Transaction ID</div>
+            <a class="id" id="trId">NB23080618142418671425152</a>            
+            <div class="title"><span id="op2">Jio</span> Prepaid Reference ID</div>
+            <a class="id" id="prepaidId">1391048782</a>
+            <div class="title">Debited from</div>
+            <div class="bank">
+                <img src="b.png" alt="">
+                <div>
+                    <div>XXXXXXXXXXX3320</div>
+                    <a>UTR: <span id="utr">321831836554</span></a>
+                </div>
+                <span>₹<span id="am2">399</span></span>
+            </div>
+            
+        </div>
+    </section>
+    <footer>
+        <p>Powered by</p>
+        <div class="footer-inner">
+            <img src="upi.png" alt="">
+            <img src="axis.png" alt="">
+        </div>
+    </footer>
+    <script>
+        // Get current date and time
+        let now = new Date();    
+        // Set date field
+        let dateField = document.getElementById('dateField');
+        let formattedDate = now.toISOString().substr(0, 10); // Format: YYYY-MM-DD
+        dateField.value = formattedDate;    
+        // Set time field
+        let timeField = document.getElementById('timeField');
+        let formattedTime = now.toTimeString().substr(0, 5); // Format: HH:MM
+        timeField.value = formattedTime;
+    </script>
+    <script>
+        document.getElementById('saveButton').addEventListener('click', function() {
+            // Get all input values
+            let dateValue = document.getElementById('dateField').value;
+            let timeValue = document.getElementById('timeField').value;
+            let mobileNumberValue = document.getElementById('mobileNumberField').value;
+            let operatorValue = document.getElementById('operatorField').value;
+            let rechargeAmountValue = document.getElementById('rechargeAmountField').value;
+            rechargeAmountValue = parseFloat(rechargeAmountValue).toLocaleString();
+            let timeArray = timeValue.split(":");
+            let hour = parseInt(timeArray[0]);
+            let am_pm = (hour >= 12) ? "PM" : "AM";
+            if (hour > 12) {
+                hour -= 12;
+            } else if (hour === 0) {
+                hour = 12;
+            }
+            let timeFormatted = (hour < 10 ? '0' + hour : hour) + ":" + timeArray[1] + " " + am_pm;
 
+
+            // Convert date to "17 Feb 2024" format
+            let dateObject = new Date(dateValue);
+            let monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+            ];
+            let formattedDate = dateObject.getDate() + " " + monthNames[dateObject.getMonth()] + " " + dateObject.getFullYear();
+            let min = 321831836554;
+            let max = 851831836554;
+            let utr = Math.floor(Math.random() * (max - min + 1)) + min;
+            let min2 = 1391048782;
+            let max2 = 8391048782;
+            let prepaidId = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+            function trId() {
+                let min3 = 23080;
+                let max3 = 82080;
+                return Math.floor(Math.random() * (max3 - min3 + 1)) + min3;            
+            } 
+                
+            function generateRandomString(length) {
+                let result = '';
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                const charactersLength = characters.length;
+                for (let i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                return result;
+            }
+
+            // Generate a random two-digit alphanumeric string
+            let xtrId = generateRandomString(2) + trId() + trId()+ trId() + trId() + trId();
+            xtrId = xtrId.slice(0, -2)
+            document.getElementById('time').innerHTML = timeFormatted
+            document.getElementById('date').innerHTML = formattedDate
+            document.getElementById('op').innerHTML = operatorValue
+            document.getElementById('op2').innerHTML = operatorValue
+            document.getElementById('am').innerHTML = rechargeAmountValue
+            document.getElementById('am2').innerHTML = rechargeAmountValue
+            document.getElementById('utr').innerHTML = utr
+            document.getElementById('prepaidId').innerHTML = prepaidId
+            document.getElementById('mob').innerHTML = mobileNumberValue
+            document.getElementById('trId').innerHTML = xtrId
+            document.getElementById('asideContainer').style.display = 'none';
+        });
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
